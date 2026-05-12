@@ -105,7 +105,7 @@
 "logo": "https://mcusercontent.com/d9f0645acdcd85eb1ee1a8067/images/8c7f2cbe-39b2-9320-be0b-bb06479a0b8a.png",
 "description": "HALT Fire (Prime Safety US Inc.) manufactures America's most complete PFAS-free, non-toxic fire suppression platform — powered by patented GreenFire® technology. Products include HALT Industrial GFFF (an NSF-certified, UL-classified AFFF replacement used by fire departments and government agencies), HALT Professional (OSHA-compliant hot-work and job-site protection for contractors), and HALT consumer fire sprays for household, grill, and lithium-ion battery fires. All products are 100% PFAS-free, NSF White Book listed, GreenScreen certified, and OMRI listed. Government-tested by DOD, DOE, EPA, and FAA. Made in USA.",
 "foundingDate": "2016",
-"telephone": "+18887667327",
+"telephone": "",
 "email": "customerservice@haltfire.com",
 "address": {
   "@type": "PostalAddress",
@@ -221,7 +221,7 @@ button{cursor:pointer}
 /* ===== NAV ===== */
 .nav{position:fixed;top:40px;left:0;right:0;z-index:500;background:var(--dark);border-bottom:1px solid rgba(255,255,255,.07);transition:top .3s,box-shadow .3s;overflow:hidden}
 .nav.scrolled{top:0;box-shadow:0 4px 32px rgba(0,0,0,.5)}
-.nav-inner{width:100%;padding:0 32px;height:130px;display:grid;grid-template-columns:260px 1fr 260px;align-items:center}
+.nav-inner{width:100%;padding:0 24px;height:130px;display:grid;grid-template-columns:220px 1fr 280px;align-items:center;gap:8px}
 .nav-logo{justify-self:start;padding-left:32px}
 .nav-logo img{height:95px!important;width:auto!important;max-height:none!important;object-fit:contain;object-position:left center;transition:opacity .25s}
 .nav-logo:hover img{opacity:.85}
@@ -699,7 +699,7 @@ footer{background:#050505;padding:72px 0 0;color:#fff}
 .team-card:hover{background:#222;transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.1)}
 .team-card:hover::after{transform:scaleX(1)}
 .team-avatar{width:72px;height:72px;background:var(--dark);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font);font-size:24px;color:#fff;margin:0 auto 18px;transition:background .35s}
-.team-card:hover .team-avatar{background:var(--green)}
+.team-card:hover .team-avatar:not(:has(img)){background:var(--green)}.team-avatar img{filter:grayscale(100%)}.team-card:hover .team-avatar img{filter:grayscale(0%)}
 .team-name{font-family:var(--nav);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#fff;margin-bottom:4px}
 .team-title{font-size:12px;color:var(--green);font-family:var(--nav);font-weight:600;margin-bottom:10px}
 .team-bio{font-size:12px;color:rgba(255,255,255,.5);line-height:1.7}
@@ -826,6 +826,13 @@ footer{background:#050505;padding:72px 0 0;color:#fff}
 @media(max-width:768px){.fd-split,.fd-col{grid-template-columns:1fr}.fd-col{padding:48px 28px}}
 
 /* ===== RESPONSIVE ===== */
+@media(max-width:1280px){
+.nav-inner{grid-template-columns:200px 1fr 260px;padding:0 16px}
+.nav-links a{padding:0 9px;font-size:10.5px}
+.nav-logo img{height:80px!important}
+.nav-inner{height:110px}
+.nav-links a{height:110px}
+}
 @media(max-width:1024px){
 .nav-links,.nav-ctas{display:none}
 .mob-btn{display:flex}
@@ -873,6 +880,48 @@ footer{background:#050505;padding:72px 0 0;color:#fff}
 .team-grid{grid-template-columns:repeat(2,1fr)}
 .ql-grid{grid-template-columns:1fr 1fr}
 }
+/* ===== TABLET (768px - 1024px) ===== */
+@media(min-width:769px) and (max-width:1024px){
+.team-grid{grid-template-columns:repeat(2,1fr)}
+.div-grid{grid-template-columns:repeat(2,1fr)}
+.feat-grid{grid-template-columns:repeat(2,1fr)}
+.con{padding:0 32px}
+}
+/* ===== RETAILERS RESPONSIVE ===== */
+@media(max-width:768px){
+/* Marketing 2x2 -> stack */
+[style*="grid-template-columns:1fr 1fr"][style*="gap:3px"]{grid-template-columns:1fr!important}
+/* Aisle categories -> 2 cols */
+[style*="repeat(6,1fr)"][style*="gap:2px"]{grid-template-columns:repeat(2,1fr)!important}
+/* Counter display counts -> 3 cols */
+[style*="repeat(5,1fr)"][style*="gap:2px"]{grid-template-columns:repeat(3,1fr)!important}
+/* Display shippers 3 col -> 1 col */
+[style*="repeat(3,1fr)"][style*="gap:2px"]{grid-template-columns:1fr!important}
+/* Media logos grid -> 3 cols */
+[style*="repeat(5,1fr)"][style*="gap:10px"]{grid-template-columns:repeat(3,1fr)!important}
+/* Lineup SKU bar -> 4 cols */
+[style*="repeat(7,1fr)"][style*="gap:2px"]{grid-template-columns:repeat(4,1fr)!important}
+/* Science cert bar -> 3 cols */
+[style*="repeat(6,1fr)"][style*="overflow:hidden"]{grid-template-columns:repeat(3,1fr)!important}
+/* Retail stats bar -> 2 cols */
+.retail-stats{grid-template-columns:repeat(2,1fr)!important}
+}
+@media(max-width:480px){
+/* Aisle categories -> 1 col */
+[style*="repeat(6,1fr)"][style*="gap:2px"]{grid-template-columns:repeat(1,1fr)!important}
+/* Media logos -> 2 cols */
+[style*="repeat(5,1fr)"][style*="gap:10px"]{grid-template-columns:repeat(2,1fr)!important}
+/* Marketing cards -> 1 col */
+[style*="grid-template-columns:1fr 1fr"][style*="gap:3px"]{grid-template-columns:1fr!important}
+/* Hero content padding */
+.hero-body{padding:0 16px}
+.ph-ctas{flex-direction:column;gap:10px;align-items:center}
+.ph-ctas a{width:100%;max-width:300px;text-align:center}
+/* Team grid -> 1 col on small mobile */
+.team-grid{grid-template-columns:1fr!important}
+/* Nav CTA buttons shrink */
+.btn-og,.btn-g{font-size:9px!important;padding:10px 12px!important}
+}
 </style>
 </head>
 <body>
@@ -881,10 +930,7 @@ footer{background:#050505;padding:72px 0 0;color:#fff}
 <div class="topbar" id="topbar">
 <div class="topbar-inner">
 <div class="topbar-left">
-<a href="tel:+18887667327">
-<svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.56 21 3 13.44 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
-+1 (888) 766-7327
-</a>
+
 <a href="mailto:customerservice@haltfire.com">
 <svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:currentColor"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
 customerservice@haltfire.com
@@ -925,15 +971,15 @@ customerservice@haltfire.com
 <li><a href="#" onclick="nav('firedept')" id="nav-firedept">Fire Department</a></li>
 <li><a href="#" onclick="nav('consumer')" id="nav-consumer">Home Use</a></li>
 <li><a href="#" onclick="nav('industrial')" id="nav-industrial">Industrial</a></li>
-<li><a href="#" onclick="nav('professional')" id="nav-professional">Professional</a></li>
+<li><a href="#" onclick="nav('professional')" id="nav-professional">Contractors</a></li>
 <li><a href="#" onclick="nav('science')" id="nav-science">The Science</a></li>
 <li><a href="#" onclick="nav('about')" id="nav-about">About</a></li>
 <li><a href="#" onclick="nav('retailers')" id="nav-retailers">Retailers</a></li>
 <li><a href="#" onclick="nav('contact')" id="nav-contact">Contact</a></li>
 </ul>
 <div class="nav-ctas">
-<a href="#" onclick="nav('contact')" class="btn-og">Request Pricing</a>
-<a href="https://get.haltfire.com" target="_blank" rel="noopener" class="btn-g">Shop Now</a>
+<a href="#" onclick="nav('firedept');setTimeout(()=>{const f=document.querySelector('#page-firedept .contact-sec');if(f)f.scrollIntoView({behavior:'smooth'})},400)" class="btn-og" style="font-size:10px;letter-spacing:1px;white-space:nowrap">Fire Dept Contact</a>
+<a href="https://get.haltfire.com" target="_blank" rel="noopener" class="btn-g" style="font-size:10px;letter-spacing:1px;white-space:nowrap">Shop Consumer</a>
 </div>
 <button class="mob-btn" id="mob-btn" onclick="toggleMob()" aria-label="Open menu" aria-expanded="false">
 <span></span><span></span><span></span>
@@ -968,7 +1014,7 @@ customerservice@haltfire.com
 <div class="slide" style="background-image:url('https://gogreenfire.com/wp-content/uploads/2020/10/FD-ENGINE-920x400-1-1500x843.jpg');background-position:center center" role="img" aria-label="HALT fire department engine"><div class="slide-overlay"></div></div>
 <div class="hero-content">
 <div class="hero-body">
-<img src="https://cdn.prod.website-files.com/664edabdd0c0f28f5db049cf/664f0f88f07959f43549db61_Fire%20Icon.svg" alt="HALT Fire" style="width:48px;height:48px;display:block;margin:0 auto 18px;animation:float 3s ease-in-out infinite;filter:drop-shadow(0 4px 12px rgba(0,0,0,.5))">
+<img src="https://cdn.prod.website-files.com/664edabdd0c0f28f5db049cf/664f0f88f07959f43549db61_Fire%20Icon.svg" alt="HALT Fire" style="width:48px;height:48px;display:block;margin:0 auto 6px;animation:float 3s ease-in-out infinite;filter:drop-shadow(0 4px 12px rgba(0,0,0,.5))">
 <span class="hero-eye">NSF Certified &middot; UL Classified &middot; 100% PFAS-Free &middot; Made in USA</span>
 <h1>America's Most Complete<br><em>PFAS-Free Fire Safety</em> Platform</h1>
 <p class="hero-lead">HALT Fire is the only brand delivering NSF-certified, government-tested PFAS-free fire suppression across every sector — home, industrial, and professional trades. Powered by patented GreenFire&reg; technology. Zero forever chemicals. Zero compromise.</p>
@@ -1138,7 +1184,7 @@ NEXT
 <p style="font-size:15px;color:var(--muted);line-height:1.85;margin-bottom:18px">In April 2026, HALT Fire acquired GreenFire &mdash; the pioneer of PFAS-free industrial firefighting foam &mdash; and launched HALT Industrial, bringing patented non-toxic technology to fire departments and industrial operators nationwide. The acquisition was covered by Morningstar, Benzinga, and over 186 media outlets.</p>
 <p style="font-size:13px;color:var(--muted);line-height:1.85;margin-bottom:28px">Existing GreenFire customers retain full access to all products, certifications, and SDS documents. No disruption. Same trusted technology &mdash; now under the HALT Industrial brand with expanded support and capabilities.</p>
 <div class="split-btns">
-<a href="https://www.prnewswire.com/news-releases/halt-fire-acquires-green-fire-and-launches-halt-industrial-302751129.html" target="_blank" rel="noopener" class="btn-g">Read the Press Release</a>
+<a href="https://www.prnewswire.com/news-releases/halt-fire-acquires-green-fire-and-launches-halt-industrial-creating-a-vertically-integrated-fire-safety-company-as-a-global-leader-in-safe--sustainable-firefighting-solutions-302751129.html" target="_blank" rel="noopener" class="btn-g">Read the Press Release</a>
 <a href="#" onclick="nav('industrial')" class="btn-og">Explore HALT Industrial</a>
 </div>
 </div>
@@ -1184,7 +1230,7 @@ NEXT
 <p>Pre-treatment for hot-work environments: welding, HVAC, plumbing, roofing, and automotive. Adheres to any surface at any angle. Prevents fire before it starts.</p>
 <div class="plcard-sz">Available: 16oz Aerosol &middot; 5 Gal &middot; 55 Gal Drum &middot; 275 Gal Tote</div>
 </div>
-<a href="#" onclick="nav('industrial')" class="btn-g" style="display:inline-block;margin-top:24px">View All Industrial Products &rarr;</a>
+<a href="#" onclick="nav('industrial');setTimeout(function(){var el=document.getElementById('ind-products');if(el)el.scrollIntoView({behavior:'smooth'})},400)" class="btn-g" style="display:inline-block;margin-top:24px">View All Industrial Products &rarr;</a>
 </div>
 </div>
 </div>
@@ -1214,6 +1260,31 @@ NEXT
 </div>
 </section>
 
+<section class="sec" style="background:#000;padding:72px 0" aria-label="Media coverage">
+<div class="con" style="text-align:center">
+<span class="eyebrow" style="display:block;margin-bottom:12px">National Media Coverage</span>
+<h2 style="font-family:var(--font);font-size:clamp(28px,3.5vw,44px);color:#fff;text-transform:uppercase;margin-bottom:52px;line-height:1.1">As Seen <em>On</em></h2>
+<div class="media-logo-grid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;max-width:980px;margin:0 auto">
+<div style="background:#fff;height:76px;display:flex;align-items:center;justify-content:center;padding:12px 16px"><img src="https://mcusercontent.com/d9f0645acdcd85eb1ee1a8067/images/1934fabc-3274-3e07-e1a9-894e1766c10f.png" alt="FOX News" style="max-width:100%;max-height:46px;object-fit:contain"></div>
+<div style="background:#fff;height:76px;display:flex;align-items:center;justify-content:center;padding:12px 16px"><img src="https://mcusercontent.com/d9f0645acdcd85eb1ee1a8067/images/9a1157c4-ae77-930e-b45f-ed4b117f11ca.png" alt="CBS" style="max-width:100%;max-height:46px;object-fit:contain"></div>
+<div style="background:#fff;height:76px;display:flex;align-items:center;justify-content:center;padding:12px 16px"><img src="https://mcusercontent.com/d9f0645acdcd85eb1ee1a8067/images/daa54da3-3354-7c8d-c8ed-2b1c4baa5974.png" alt="BET" style="max-width:100%;max-height:46px;object-fit:contain"></div>
+<div style="background:#fff;height:76px;display:flex;align-items:center;justify-content:center;padding:12px 16px"><img src="https://mcusercontent.com/d9f0645acdcd85eb1ee1a8067/images/733ad98e-8fa1-5da3-555c-073539a5c225.png" alt="Inside Edition" style="max-width:100%;max-height:46px;object-fit:contain"></div>
+<div style="background:#fff;height:76px;display:flex;align-items:center;justify-content:center;padding:8px 12px;overflow:hidden"><img src="https://mcusercontent.com/d9f0645acdcd85eb1ee1a8067/images/9c3cd75a-1d14-012c-71fe-ab80a7e9f9e7.png" alt="America's Steals and Deals" style="width:100%;height:100%;object-fit:contain;transform:scale(2.2);transform-origin:center"></div>
+<div style="background:#fff;height:76px;display:flex;align-items:center;justify-content:center;padding:12px 16px"><img src="https://mcusercontent.com/d9f0645acdcd85eb1ee1a8067/images/ee5a9dd7-8f05-f69a-5369-3df1e285d66d.png" alt="CNBC" style="max-width:100%;max-height:46px;object-fit:contain"></div>
+<div style="background:#fff;height:76px;display:flex;align-items:center;justify-content:center;padding:12px 16px"><img src="https://mcusercontent.com/d9f0645acdcd85eb1ee1a8067/images/6f28f686-042e-2e7a-f98c-4df0148a0884.png" alt="The Wall Street Journal" style="max-width:100%;max-height:46px;object-fit:contain"></div>
+<div style="background:#fff;height:76px;display:flex;align-items:center;justify-content:center;padding:12px 16px"><img src="https://mcusercontent.com/d9f0645acdcd85eb1ee1a8067/images/0b574af9-5f13-7db5-932e-6959d42a9595.png" alt="The Washington Post" style="max-width:100%;max-height:46px;object-fit:contain"></div>
+<div style="background:#fff;height:76px;display:flex;align-items:center;justify-content:center;padding:12px 16px"><img src="https://mcusercontent.com/d9f0645acdcd85eb1ee1a8067/images/9c607981-fbb3-67ed-ba88-fb3132e8d07a.png" alt="NBC" style="max-width:100%;max-height:46px;object-fit:contain"></div>
+<div style="background:#fff;height:76px;display:flex;align-items:center;justify-content:center;padding:12px 16px"><img src="https://mcusercontent.com/d9f0645acdcd85eb1ee1a8067/images/e1fac359-1cf6-9399-7977-153a402e4d57.png" alt="ABC" style="max-width:100%;max-height:46px;object-fit:contain"></div>
+</div>
+<p style="font-family:var(--nav);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.2);margin-top:36px">HALT Fire has been featured across national broadcast, print, and digital media</p>
+</div>
+</section>
+
+<div style="background:#111;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);padding:18px 0">
+<div class="con">
+<p style="font-size:11px;color:rgba(255,255,255,.35);text-align:center;line-height:1.7;max-width:860px;margin:0 auto"><strong style="color:rgba(255,255,255,.5)">Important Notice:</strong> HALT Fire Suppressors are a supplemental fire safety tool and do not replace state-required portable fire extinguishers. All applicable state laws and NFPA 10 requirements for fire extinguisher placement and maintenance remain in effect. HALT products are an added layer of protection — not a substitute for code-required equipment.</p>
+</div>
+</div>
 <!-- CONTACT -->
 <div class="contact-sec" id="home-contact" role="region" aria-label="Contact HALT Fire" style="position:relative;overflow:hidden;background:#0a0a0a">
 
@@ -1233,10 +1304,10 @@ NEXT
 <h2>Contact <em style="font-style:normal;color:var(--green)">HALT Fire</em></h2>
 <p>Whether you're a fire department ready to replace AFFF, an industrial operator needing a PFAS-free foam solution, a contractor looking for job site fire protection, or a retailer interested in carrying HALT — our team is ready with pricing, product specs, SDS documents, certification packages, and samples.</p>
 <div class="c-info" style="border-left:2px solid rgba(204,255,0,.25);padding-left:16px;margin:24px 0">
-<div class="c-row"><strong>Phone: </strong>+1 (888) 766-7327</div>
+
 <div class="c-row"><strong>General: </strong>customerservice@haltfire.com</div>
-<div class="c-row"><strong>Industrial Sales: </strong>industrial@haltfire.com</div>
-<div class="c-row"><strong>Retail: </strong>retail@haltfire.com</div>
+<div class="c-row"><strong>Industrial Sales: </strong>Sales@haltfire.com</div>
+<div class="c-row"><strong>Retail: </strong>Sales@haltfire.com</div>
 </div>
 <div style="display:flex;gap:12px;flex-wrap:wrap">
 <a href="https://get.haltfire.com" target="_blank" rel="noopener" class="btn-g">Shop Consumer &rarr;</a>
@@ -1275,11 +1346,11 @@ NEXT
 <div class="phb" style="background-image:url('https://gogreenfire.com/wp-content/uploads/2020/10/FD-ENGINE-920x400-1-1500x843.jpg')"></div>
 <div class="pho"></div>
 <div class="phc"><div class="phi">
-<span class="pey">HALT Industrial &mdash; Fire Department &amp; Municipal Division</span>
-<h1>The AFFF Replacement<br><em>Fire Departments Trust</em></h1>
-<p>The most rigorously tested, fully certified AFFF alternative available today — built specifically for fire departments, municipalities, and government agencies who need drop-in performance equivalency, zero PFAS liability, and a product already proven in DOD, DOE, EPA, and FAA testing. No new equipment. No retraining. Switch in a single day.</p>
+<span class="pey">HALT Fire &mdash; Municipal &amp; Government Fire Suppression</span>
+<h1>End PFAS Exposure.<br><em>Protect Your Crew.</em></h1>
+<p>72% of firefighters will be diagnosed with cancer. AFFF is a primary driver. HALT's NSF-certified, PFAS-free GFFF is a drop-in replacement — same equipment, same technique, zero toxic foam. Proven in DOD, DOE, EPA, and FAA testing. Switch your department in a single day with no retraining and no new apparatus.</p>
 <div class="ph-ctas">
-<a href="#" onclick="document.getElementById('fd-contact-form').scrollIntoView({behavior:'smooth'})" class="btn-g">Request Pricing &amp; Samples</a>
+<a href="#" onclick="return scrollToContact('page-firedept','fd-contact-form');" class="btn-g">Request Pricing &amp; Samples</a>
 <a href="#fd-products" class="btn-og" style="color:#fff;border-color:rgba(255,255,255,.4)">View Products</a>
 </div>
 </div></div>
@@ -1319,7 +1390,7 @@ NEXT
 <div style="font-family:var(--nav);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.6)">States have enacted or proposed AFFF bans</div>
 </div>
 <div style="background:#1a1a1a;padding:32px 24px;text-align:center;border-top:3px solid #EA0029">
-<div style="font-family:var(--font);font-size:52px;color:#EA0029;line-height:1;margin-bottom:8px">∞</div>
+<div style="font-family:var(--font);font-size:72px;color:#EA0029;line-height:1;margin-bottom:8px">∞</div>
 <div style="font-family:var(--nav);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.6)">years PFAS persist in soil, water &amp; blood — they never break down</div>
 </div>
 </div>
@@ -1328,7 +1399,7 @@ NEXT
 <h3 style="font-family:var(--font);font-size:26px;color:#fff;text-transform:uppercase;margin-bottom:16px">The Direct Link Between <em style="color:#EA0029;font-style:normal">AFFF and Cancer</em></h3>
 <p style="font-size:14px;color:rgba(255,255,255,.65);line-height:1.85;margin-bottom:16px">AFFF contains PFOS and PFOA — classified by the EPA as hazardous substances under CERCLA since April 2024. These fluorosurfactants bioaccumulate in the body and never break down in soil or groundwater. The DOD has already spent $2.6 billion investigating PFAS groundwater contamination at military bases alone — and is required by federal law to eliminate AFFF from all installations by October 2026.</p>
 <p style="font-size:14px;color:rgba(255,255,255,.65);line-height:1.85;margin-bottom:24px">The NIOSH Firefighter Cancer Study — tracking 30,000 career firefighters across three major US cities — confirmed significantly elevated cancer risk across multiple types. The firefighting occupation was reclassified by IARC to Group 1 carcinogenic in 2022. With 3M settling AFFF contamination claims for $10.3 billion and 34+ states introducing bans, the transition away from AFFF is no longer a question of if — it's a question of what comes next. HALT Industrial GFFF is that answer.</p>
-<a href="#" onclick="document.getElementById('fd-contact-form').scrollIntoView({behavior:'smooth'})" class="btn-g">Get PFAS-Free Now &rarr;</a>
+<a href="#" onclick="return scrollToContact('page-firedept','fd-contact-form');" class="btn-g">Get PFAS-Free Now &rarr;</a>
 </div>
 <div style="background:#1a1a1a;border:1px solid rgba(234,0,41,.2);padding:32px">
 <div style="font-family:var(--nav);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#EA0029;margin-bottom:20px">Cancers Linked to PFAS Exposure</div>
@@ -1404,7 +1475,7 @@ NEXT
 <span class="eyebrow">Existing GreenFire Customers</span>
 <h3 style="font-family:var(--font);font-size:20px;color:#fff;text-transform:uppercase;margin-bottom:12px">Your Products Are Still Available</h3>
 <p style="font-size:14px;color:rgba(255,255,255,.5);line-height:1.8;margin-bottom:18px">HALT Fire acquired GreenFire in April 2026. All products, certifications, SDS documents, and technical support remain fully available &mdash; now under the HALT Industrial brand. No disruption to your department.</p>
-<a href="#" onclick="document.getElementById('ind-contact-form').scrollIntoView({behavior:'smooth'})" class="btn-g" style="font-size:11px;padding:11px 22px">Contact Our Team &rarr;</a>
+<a href="#" onclick="return scrollToContact('page-firedept','fd-contact-form');" class="btn-g" style="font-size:11px;padding:11px 22px">Contact Our Team &rarr;</a>
 </div>
 </div>
 </div>
@@ -1539,8 +1610,8 @@ NEXT
 <p>Municipal departments, county agencies, state fire organizations &mdash; contact our fire department sales team for pricing, volume orders, sample kits, and SDS documents.</p>
 <p>We work with departments of all sizes. Minimum order is 5 gallons. Volume pricing available for drum and tote orders.</p>
 <div class="c-info" style="border-left:2px solid rgba(204,255,0,.25);padding-left:16px;margin:24px 0">
-<div class="c-row"><strong>Industrial Sales: </strong>industrial@haltfire.com</div>
-<div class="c-row"><strong>Phone: </strong>+1 (888) 766-7327</div>
+<div class="c-row"><strong>Industrial Sales: </strong>Sales@haltfire.com</div>
+
 </div>
 </div>
 <form class="form reveal-right" action="https://formspree.io/f/mojyvlqb" method="POST">
@@ -1888,7 +1959,7 @@ NEXT
 </section>
 
 <!-- AS SEEN ON -->
-<section class="sec" style="background:var(--dark2);padding:72px 0" aria-label="Media coverage">
+<section class="sec" style="background:#000;padding:72px 0" aria-label="Media coverage">
 <div class="con" style="text-align:center">
 <span class="eyebrow" style="display:block;margin-bottom:12px">National Media Coverage</span>
 <h2 style="font-family:var(--font);font-size:clamp(28px,3.5vw,44px);color:#fff;text-transform:uppercase;margin-bottom:52px;line-height:1.1">As Seen <em>On</em></h2>
@@ -1908,6 +1979,7 @@ NEXT
 </div>
 </section>
 
+
 <div class="cta-band">
 <h2><img src="https://cdn.prod.website-files.com/664edabdd0c0f28f5db049cf/664f0f88f07959f43549db61_Fire%20Icon.svg" alt="" style="width:36px;height:36px;display:inline-block;vertical-align:middle;margin-right:12px;margin-bottom:4px">Ready to Protect Your Home?</h2>
 <p>Free shipping on orders over $49. 30-day satisfaction guarantee. Ships from our US facility.</p>
@@ -1925,7 +1997,7 @@ NEXT
 <h1>The <em>AFFF Replacement</em><br>Fire Departments Trust</h1>
 <p>PFAS-free GFFF firefighting foam for fire departments, oil &amp; gas, aviation, utilities, and industrial operators. Tested by DOD, DOE, EPA &amp; FAA. Drop-in replacement &mdash; no equipment changes.</p>
 <div class="ph-ctas">
-<a href="#" onclick="document.getElementById('ind-contact-form').scrollIntoView({behavior:'smooth'})" class="btn-g">Request Industrial Pricing</a>
+<a href="#" onclick="setTimeout(function(){var el=document.getElementById('ind-contact-form');if(el){el.scrollIntoView({behavior:'smooth',block:'start'})}else{console.log('not found')}},200);return false;" class="btn-g">Order Form</a>
 <a href="#i-products" class="btn-og" style="color:#fff;border-color:rgba(255,255,255,.4)">View Products</a>
 </div>
 </div></div>
@@ -1998,7 +2070,7 @@ NEXT
 <span class="eyebrow">GreenFire Customers</span>
 <h3 style="font-family:var(--font);font-size:22px;color:#fff;text-transform:uppercase;margin-bottom:14px">Your Products Are Still Available</h3>
 <p style="font-size:14px;color:rgba(255,255,255,.5);line-height:1.8;margin-bottom:20px">HALT Fire acquired GreenFire in April 2026. If you're an existing GreenFire customer, all products, certifications, SDS documents, and technical support remain fully available &mdash; now under the HALT Industrial brand.</p>
-<a href="#" onclick="document.getElementById('fd-contact-form').scrollIntoView({behavior:'smooth'})" class="btn-g" style="font-size:11px;padding:11px 22px">Contact Our Team &rarr;</a>
+<a href="#" onclick="return scrollToContact('page-industrial','ind-contact-form');" class="btn-g" style="font-size:11px;padding:11px 22px">Contact Our Team &rarr;</a>
 </div>
 </div>
 </div>
@@ -2038,7 +2110,7 @@ NEXT
 <div class="info-tile"><div class="info-tile-num">30%</div><div class="info-tile-label">Less water needed vs. traditional wetting agents</div></div>
 <div class="info-tile"><div class="info-tile-num">0</div><div class="info-tile-label">PFAS chemicals — zero forever chemicals</div></div>
 </div>
-<div class="split" style="margin-top:80px;align-items:stretch">
+<div class="split" style="margin-top:80px;align-items:center">
 <div class="split-body reveal-left" style="padding-left:0">
 <span class="eyebrow">Wildland Application &amp; Ground Delivery</span>
 <h2 style="font-family:var(--font);font-size:clamp(22px,3vw,36px);color:#fff;text-transform:uppercase;line-height:1.2;margin-bottom:16px">Works with <em style="color:var(--green);font-style:normal">Every Delivery System</em></h2>
@@ -2261,7 +2333,8 @@ Download SDS Sheet
 </div>
 </section>
 
-<div class="cert-strip" role="region" aria-label="Certifications">
+<div 
+class="cert-strip" role="region" aria-label="Certifications">
 <div class="con">
 <div class="cert-strip-inner">
 <button onclick="showCertModal('ul')" class="cert-btn"><img src="https://gogreenfire.com/wp-content/uploads/2023/04/GreenFire_UL_Classified.jpeg" alt="UL Classified" class="cert-logo"></button>
@@ -2276,6 +2349,11 @@ Download SDS Sheet
 </div>
 
 <!-- PRICING FORM -->
+<div style="background:#111;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);padding:18px 0">
+<div class="con">
+<p style="font-size:11px;color:rgba(255,255,255,.35);text-align:center;line-height:1.7;max-width:860px;margin:0 auto"><strong style="color:rgba(255,255,255,.5)">Important Notice:</strong> HALT Fire Suppressors are a supplemental fire safety tool and do not replace state-required portable fire extinguishers. All applicable state laws and NFPA 10 requirements for fire extinguisher placement and maintenance remain in effect. HALT products are an added layer of protection — not a substitute for code-required equipment.</p>
+</div>
+</div>
 <div id="ind-contact-form" class="contact-sec" style="position:relative;overflow:hidden;background:#0a0a0a">
 <img src="https://cdn.prod.website-files.com/664edabdd0c0f28f5db049cf/664f0f88f07959f43549db61_Fire%20Icon.svg" alt="" aria-hidden="true" style="position:absolute;right:-60px;bottom:-40px;width:560px;height:560px;opacity:.06;pointer-events:none;filter:brightness(0) invert(1)">
 <div style="position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--green)"></div>
@@ -2286,8 +2364,8 @@ Download SDS Sheet
 <h2>HALT Industrial <em style="font-style:normal;color:var(--green)">Sales Team</em></h2>
 <p>Fire departments, municipalities, industrial operators, airport authorities, government agencies, and wildland crews — contact our sales team for pricing, volume orders, technical specifications, SDS documents, and certification packages. Existing GreenFire customers: your products, certifications, and SDS documents remain fully available under the HALT Industrial brand.</p>
 <div class="c-info" style="border-left:2px solid rgba(204,255,0,.25);padding-left:16px;margin:24px 0">
-<div class="c-row"><strong>Industrial Sales: </strong>industrial@haltfire.com</div>
-<div class="c-row"><strong>Phone: </strong>+1 (888) 766-7327</div>
+<div class="c-row"><strong>Industrial Sales: </strong>Sales@haltfire.com</div>
+
 </div>
 </div>
 <form class="form reveal-right" action="https://formspree.io/f/mojyvlqb" method="POST">
@@ -2311,7 +2389,7 @@ Download SDS Sheet
 </select>
 </div>
 <div class="fg"><label>Volume / Message</label><textarea name="message" placeholder="Tell us about your volume needs, current AFFF usage, or specific requirements..."></textarea></div>
-<button type="submit" class="btn-sub">Request Industrial Pricing</button>
+<button type="submit" class="btn-sub">Order Form</button>
 </form>
 </div>
 </div>
@@ -2395,7 +2473,7 @@ Download SDS Sheet
 
 <!-- SPLIT -->
 <section style="padding:0">
-<div class="split" style="align-items:stretch">
+<div class="split" style="align-items:center">
 <div class="split-img reveal-left" style="background:linear-gradient(135deg,#0a0a0a 0%,#141414 60%,#1a1a1a 100%);overflow:hidden;position:relative;display:flex;flex-direction:column;height:auto;min-height:560px">
 <div style="flex:1;position:relative;min-height:420px">
 <img src="https://mcusercontent.com/d9f0645acdcd85eb1ee1a8067/images/602b9766-434b-1e76-8113-63e520a6c729.png" alt="HALT Professional 14oz Fire Suppressor and 16oz Heat Barrier" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;display:block;padding:32px 24px 16px">
@@ -2764,49 +2842,49 @@ Download SDS Sheet
 </div>
 <div class="team-grid stagger" style="grid-template-columns:repeat(4,1fr)">
 <div class="team-card">
-<div class="team-avatar" style="width:80px;height:80px;font-size:20px">RS</div>
+<div class="team-avatar" style="width:80px;height:80px;font-size:20px;padding:0;overflow:hidden;background:transparent"><img src="https://mcusercontent.com/d9f0645acdcd85eb1ee1a8067/images/1096a8e0-5315-c534-f031-35cc524cf899.jpeg" alt="Robert Schiederer" style="width:100%;height:116%;margin-top:-16%;object-fit:cover;object-position:center top;display:block;border-radius:50%"></div>
 <div class="team-name">Rob Schiederer</div>
 <div class="team-title">President</div>
 <div class="team-bio">Rob brings over 40 years experience in CPG. He created &amp; scaled one of the most successful sales &amp; marketing agencies in Bentonville, Arkansas, merging with another agency &amp; acquiring 5 others before being acquired by Accenture. He has worked with Kraft Foods, Unilever, Mars Chocolate, Hershey, Kimberly Clark, Walmart &amp; Sam's Club.</div>
 </div>
 <div class="team-card">
-<div class="team-avatar" style="width:80px;height:80px;font-size:20px">JB</div>
+<div class="team-avatar" style="width:80px;height:80px;font-size:20px;padding:0;overflow:hidden;background:transparent"><img src="https://mcusercontent.com/d9f0645acdcd85eb1ee1a8067/images/0b41d97f-26cd-dbd2-d487-a7e75a56e247.png" alt="Jerry Bello" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;border-radius:50%"></div>
 <div class="team-name">Jerry Bello</div>
 <div class="team-title">Chairman</div>
 <div class="team-bio">A serial entrepreneur, Jerry has repeatedly identified consumer trends ahead of the curve &amp; created disruptive products, including Veggie Straws &amp; Brownie Brittle, leading to major exits. Before CPG, Jerry was an intravenous medicine pharmacist, founding an infusion services healthcare company later acquired by Pediatric Services of America.</div>
 </div>
 <div class="team-card">
-<div class="team-avatar" style="width:80px;height:80px;font-size:20px">BM</div>
+<div class="team-avatar" style="width:80px;height:80px;font-size:20px;padding:0;overflow:hidden;background:transparent"><img src="https://mcusercontent.com/d9f0645acdcd85eb1ee1a8067/images/ab695eea-0629-b3e5-6c03-e425f85002e9.jpg" alt="Brandon Miller" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;border-radius:50%"></div>
 <div class="team-name">Brandon Miller</div>
 <div class="team-title">Product Development &amp; Environmental Integrity</div>
 <div class="team-bio">Brandon is a pioneering leader in the organics industry with over 25 years of experience, known for developing innovative solutions in commercial food production &amp; overcoming challenges in a rapidly evolving field. Dedicated to environmental &amp; human health, he joined the GreenFire team in 2016 to advance responsible, chemical-free firefighting &amp; fire protection technologies.</div>
 </div>
 <div class="team-card">
-<div class="team-avatar" style="width:80px;height:80px;font-size:20px">CS</div>
+<div class="team-avatar" style="width:80px;height:80px;font-size:20px;padding:0;overflow:hidden;background:transparent"><img src="https://mcusercontent.com/d9f0645acdcd85eb1ee1a8067/images/75e8949a-15d9-ce81-71c0-e694b39792e4.jpg" alt="Chad Selk" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;border-radius:50%"></div>
 <div class="team-name">Chad Selk</div>
 <div class="team-title">Fire Department Expert &amp; Liaison</div>
 <div class="team-bio">Fire Captain of the City of Riverside Fire Department, Chad brings over 25 years experience in emergency response, leadership &amp; public safety. He has earned multiple Firefighter of the Year honors &amp; served in specialties including Search &amp; Rescue and Hazardous Materials. Chad holds degrees in fire science &amp; organizational leadership.</div>
 </div>
 <div class="team-card">
-<div class="team-avatar" style="width:80px;height:80px;font-size:20px">DM</div>
+<div class="team-avatar" style="width:80px;height:80px;font-size:20px;padding:0;overflow:hidden;background:transparent"><img src="https://mcusercontent.com/d9f0645acdcd85eb1ee1a8067/images/d934da3e-dfb8-c631-071d-91a648758da4.jpg" alt="Don Mesquit" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;border-radius:50%"></div>
 <div class="team-name">Don Mesquit</div>
 <div class="team-title">Regulatory &amp; Closed Systems</div>
 <div class="team-bio">Don brings over 35 years of fire protection experience and holds a California C-16 specialty license, with deep expertise across installation, inspection, testing, and maintenance of a wide range of fire systems. As an NFPA &amp; IFMA member, his extensive knowledge of fire codes, standards &amp; testing helps ensure GreenFire's products are properly evaluated &amp; certified.</div>
 </div>
 <div class="team-card">
-<div class="team-avatar" style="width:80px;height:80px;font-size:20px">RV</div>
-<div class="team-name">Ramesh Varadaraj</div>
-<div class="team-title">Lead Chemist &amp; Patent Development</div>
-<div class="team-bio">Dr. Varadaraj is a chemical innovation expert with a PhD in Chemistry &amp; over 30 years of experience at major energy companies, holding more than 200 patents in energy &amp; environmental technologies. Known for inventing the globally used COREXIT 9500 oil spill dispersant, he now serves as GreenFire FSI's Chief Technical Officer, leading R&amp;D &amp; product innovation for advanced fire and smoke suppression solutions.</div>
+<div class="team-avatar" style="width:80px;height:80px;font-size:20px;padding:0;overflow:hidden;background:transparent"><img src="https://mcusercontent.com/d9f0645acdcd85eb1ee1a8067/images/2965230d-de71-f075-41c6-9bfe8a54c15b.jpg" alt="Seth Sundquist" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;border-radius:50%"></div>
+<div class="team-name">Seth Sundquist</div>
+<div class="team-title">New Business Development &amp; R&amp;D</div>
+<div class="team-bio">Seth is a longtime business owner &amp; licensed contractor with nearly two decades of experience, specializing in mechanical systems including commercial plumbing, boilers &amp; fire sprinklers. Known for developing the innovative fire-prevention tool heat barrier and for operating with a strong focus on client education, authenticity &amp; transparency.</div>
 </div>
 <div class="team-card">
-<div class="team-avatar" style="width:80px;height:80px;font-size:20px">AF</div>
+<div class="team-avatar" style="width:80px;height:80px;font-size:20px;padding:0;overflow:hidden;background:#111"><img src="https://mcusercontent.com/d9f0645acdcd85eb1ee1a8067/images/a4c6061f-a752-08cb-2bb4-5eca63e25730.png" onmouseover="this.parentNode.style.background='#1a1a1a'" onmouseout="this.parentNode.style.background='#1a1a1a'" alt="Anthony Fallon" style="width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;border-radius:50%;transform:scale(1.15)"></div>
 <div class="team-name">Anthony Fallon</div>
 <div class="team-title">Head of E-Commerce</div>
 <div class="team-bio">Anthony leads HALT Fire e-commerce operations and Shopify storefront, driving consumer sales strategy, conversion optimization, and digital retail growth across all consumer product lines.</div>
 </div>
 <div class="team-card">
-<div class="team-avatar" style="width:80px;height:80px;font-size:20px">RR</div>
+<div class="team-avatar" style="width:80px;height:80px;font-size:20px;padding:0;overflow:hidden;background:#111"><img src="https://mcusercontent.com/d9f0645acdcd85eb1ee1a8067/images/d53277d5-36c2-dd0d-6a01-1ea288628a67.png" onmouseover="this.parentNode.style.background='#1a1a1a'" onmouseout="this.parentNode.style.background='#1a1a1a'" alt="Reed Radford" style="width:100%;height:100%;object-fit:cover;object-position:35% 15%;display:block;border-radius:50%;transform:scale(1.15)"></div>
 <div class="team-name">Reed Radford</div>
 <div class="team-title">Head of Industrial Sales</div>
 <div class="team-bio">Reed leads HALT Industrial sales, managing relationships with fire departments, municipalities, industrial operators, and government agencies transitioning away from AFFF to HALT PFAS-free solutions.</div>
@@ -2995,7 +3073,7 @@ Download SDS Sheet
 <div style="background:var(--dark2);border:1px solid rgba(255,255,255,.1);padding:14px 22px;font-family:var(--nav);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;transition:all .25s;cursor:default;text-align:center" onmouseover="this.style.background='var(--green)';this.style.color='#000';this.style.borderColor='var(--green)'" onmouseout="this.style.background='var(--dark2)';this.style.color='#fff';this.style.borderColor='rgba(255,255,255,.1)'">Lighters / Fuel</div>
 <div style="background:var(--dark2);border:1px solid rgba(255,255,255,.1);padding:14px 22px;font-family:var(--nav);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;transition:all .25s;cursor:default;text-align:center" onmouseover="this.style.background='var(--green)';this.style.color='#000';this.style.borderColor='var(--green)'" onmouseout="this.style.background='var(--dark2)';this.style.color='#fff';this.style.borderColor='rgba(255,255,255,.1)'">Candles</div>
 <div style="background:var(--dark2);border:1px solid rgba(255,255,255,.1);padding:14px 22px;font-family:var(--nav);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;transition:all .25s;cursor:default;text-align:center" onmouseover="this.style.background='var(--green)';this.style.color='#000';this.style.borderColor='var(--green)'" onmouseout="this.style.background='var(--dark2)';this.style.color='#fff';this.style.borderColor='rgba(255,255,255,.1)'">Hardware</div>
-<div style="background:var(--dark2);border:1px solid rgba(255,255,255,.1);padding:14px 22px;font-family:var(--nav);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;transition:all .25s;cursor:default;text-align:center" onmouseover="this.style.background='var(--green)';this.style.color='#000';this.style.borderColor='var(--green)'" onmouseout="this.style.background='var(--dark2)';this.style.color='#fff';this.style.borderColor='rgba(255,255,255,.1)'">Electrical</div>
+<div style="background:var(--dark2);border:1px solid rgba(255,255,255,.1);padding:14px 22px;font-family:var(--nav);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;transition:all .25s;cursor:default;text-align:center" onmouseover="this.style.background='var(--green)';this.style.color='#000';this.style.borderColor='var(--green)'" onmouseout="this.style.background='var(--dark2)';this.style.color='#fff';this.style.borderColor='rgba(255,255,255,.1)'">Lithium-Ion / EV</div>
 <div style="background:var(--dark2);border:1px solid rgba(255,255,255,.1);padding:14px 22px;font-family:var(--nav);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;transition:all .25s;cursor:default;text-align:center" onmouseover="this.style.background='var(--green)';this.style.color='#000';this.style.borderColor='var(--green)'" onmouseout="this.style.background='var(--dark2)';this.style.color='#fff';this.style.borderColor='rgba(255,255,255,.1)'">Auto</div>
 <div style="background:var(--dark2);border:1px solid rgba(255,255,255,.1);padding:14px 22px;font-family:var(--nav);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;transition:all .25s;cursor:default;text-align:center" onmouseover="this.style.background='var(--green)';this.style.color='#000';this.style.borderColor='var(--green)'" onmouseout="this.style.background='var(--dark2)';this.style.color='#fff';this.style.borderColor='rgba(255,255,255,.1)'">Household</div>
 <div style="background:var(--dark2);border:1px solid rgba(255,255,255,.1);padding:14px 22px;font-family:var(--nav);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;transition:all .25s;cursor:default;text-align:center" onmouseover="this.style.background='var(--green)';this.style.color='#000';this.style.borderColor='var(--green)'" onmouseout="this.style.background='var(--dark2)';this.style.color='#fff';this.style.borderColor='rgba(255,255,255,.1)'">Baby</div>
@@ -3078,8 +3156,8 @@ Download SDS Sheet
 <h2>Retailer <em style="font-style:normal;color:var(--green)">Inquiry Form</em></h2>
 <p>Complete the form to begin the HALT retailer application process. Our retail sales team will respond within 2 business days with pricing, minimum order quantities, and onboarding information.</p>
 <div class="c-info" style="border-left:2px solid rgba(204,255,0,.25);padding-left:16px;margin:24px 0">
-<div class="c-row"><strong>Retail Sales: </strong>retail@haltfire.com</div>
-<div class="c-row"><strong>Phone: </strong>+1 (888) 766-7327</div>
+<div class="c-row"><strong>Sales &amp; Orders: </strong><a href="mailto:Sales@haltfire.com" style="color:var(--green)">Sales@haltfire.com</a></div>
+
 </div>
 <div style="display:flex;gap:12px;flex-wrap:wrap">
 <a href="https://get.haltfire.com" target="_blank" rel="noopener" class="btn-g">Shop Consumer &rarr;</a>
@@ -3134,44 +3212,35 @@ Download SDS Sheet
 </div>
 <div class="contact-channels stagger">
 <div class="cc-card">
-<span class="cc-icon"><svg viewBox="0 0 24 24" fill="currentColor" style="width:36px;height:36px"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM7.5 13L19 11l1.5-9H5.83L5.17 0H2v2h2l3.6 7.59L6.25 12c-.16.28-.25.61-.25.96C6 14.1 6.9 15 8 15h11v-2H8.42a.25.25 0 01-.25-.25l.03-.12.9-1.63H17c.75 0 1.41-.41 1.75-1.03L22.33 5.5A1 1 0 0021.46 4H4.27L3.63 1H0v2h2l3.5 10z"/></svg></span>
-<h3>Consumer</h3>
+<span class="cc-icon"><svg viewBox="0 0 24 24" fill="currentColor" style="width:36px;height:36px"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
+<h3>General Sales</h3>
+<a href="mailto:Sales@haltfire.com">Sales@haltfire.com</a>
+<p style="margin-top:12px;font-size:12px">Consumer and industrial sales inquiries, wholesale pricing, and new account setup.</p>
+</div>
+<div class="cc-card">
+<span class="cc-icon"><svg viewBox="0 0 24 24" fill="currentColor" style="width:36px;height:36px"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></span>
+<h3>Customer Support</h3>
 <a href="mailto:customerservice@haltfire.com">customerservice@haltfire.com</a>
-<a href="tel:+18887667327" style="margin-top:4px">+1 (888) 766-7327</a>
-<p style="margin-top:12px;font-size:12px">Shop at get.haltfire.com or contact us for product questions, shipping, and returns.</p>
+<a href="tel:" style="margin-top:4px"></a>
+<p style="margin-top:12px;font-size:12px">Product questions, shipping, returns, and post-purchase support for all HALT products.</p>
 </div>
 <div class="cc-card">
-<span class="cc-icon"><svg viewBox="0 0 24 24" fill="currentColor" style="width:36px;height:36px"><path d="M22 9V7h-2V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-2h2v-2h-2v-2h2v-2h-2V9h2zm-4 10H4V5h14v14z"/></svg></span>
-<h3>Industrial Sales</h3>
-<a href="mailto:industrial@haltfire.com">industrial@haltfire.com</a>
-<p style="margin-top:12px;font-size:12px">Fire departments, industrial operators, government agencies &mdash; contact for pricing, specs, and SDS documents.</p>
+<span class="cc-icon"><svg viewBox="0 0 24 24" fill="currentColor" style="width:36px;height:36px"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></span>
+<h3>Purchase Orders</h3>
+<a href="mailto:orders@haltfire.com">orders@haltfire.com</a>
+<p style="margin-top:12px;font-size:12px">Submit and track purchase orders for all HALT consumer and industrial products.</p>
 </div>
 <div class="cc-card">
-<span class="cc-icon"><svg viewBox="0 0 24 24" fill="currentColor" style="width:36px;height:36px"><path d="M20 4H4v2l16-.01V4zm1 5v-2H3v2l1 7v4h16v-4l1-7zm-9 9H8v-4h4v4zm0-6H6.5l-.75-5h11.5l-.75 5H12z"/></svg></span>
-<h3>Retail Partners</h3>
-<a href="mailto:retail@haltfire.com">retail@haltfire.com</a>
-<p style="margin-top:12px;font-size:12px">Retail buyers and merchandising teams &mdash; contact for wholesale pricing, MOQ, and onboarding.</p>
+<span class="cc-icon"><svg viewBox="0 0 24 24" fill="currentColor" style="width:36px;height:36px"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></span>
+<h3>Accounting</h3>
+<a href="mailto:Accounting@haltfire.com">Accounting@haltfire.com</a>
+<p style="margin-top:12px;font-size:12px">Invoices, billing inquiries, and all accounting matters for consumer and industrial accounts.</p>
 </div>
 <div class="cc-card">
-<span class="cc-icon"><svg viewBox="0 0 24 24" fill="currentColor" style="width:36px;height:36px"><path d="M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4v-2z"/></svg></span>
-<h3>Press &amp; Media</h3>
-<a href="mailto:press@haltfire.com">press@haltfire.com</a>
-<p style="margin-top:12px;font-size:12px">Journalists, editors, and media contacts &mdash; press materials, product samples, and interviews.</p>
-</div>
-<div class="cc-card">
-<span class="cc-icon"><svg viewBox="0 0 24 24" fill="currentColor" style="width:36px;height:36px"><path d="M19.8 18.4L14 10.67V6.5l1.35-1.69c.26-.33.03-.81-.39-.81H9.04c-.42 0-.65.48-.39.81L10 6.5v4.17L4.2 18.4c-.49.66-.02 1.6.8 1.6h14c.82 0 1.29-.94.8-1.6z"/></svg></span>
-<h3>Technical / SDS</h3>
-<a href="mailto:customerservice@haltfire.com">customerservice@haltfire.com</a>
-<p style="margin-top:12px;font-size:12px">Safety Data Sheets, certifications, technical specifications, and compatibility documentation.</p>
-</div>
-<div class="cc-card">
-<span class="cc-icon"><svg viewBox="0 0 24 24" fill="currentColor" style="width:36px;height:36px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></span>
-<h3>Headquarters</h3>
-<p>Prime Safety US Inc.</p>
-<p style="margin-top:4px">United States</p>
-<a href="tel:+18887667327" style="margin-top:8px">+1 (888) 766-7327</a>
-</div>
-</div>
+<span class="cc-icon"><svg viewBox="0 0 24 24" fill="currentColor" style="width:36px;height:36px"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></span>
+<h3>PR &amp; Media</h3>
+<a href="mailto:Marketing@haltfire.com">Marketing@haltfire.com</a>
+<p style="margin-top:12px;font-size:12px">Press inquiries, media requests, and PR for HALT Fire and GoGreenFire.</p>
 </div>
 </section>
 
@@ -3184,13 +3253,13 @@ Download SDS Sheet
 <div class="reveal-left">
 <span class="eyebrow">Send a Message</span>
 <h2>How Can We <em style="font-style:normal;color:var(--green)">Help You?</em></h2>
-<p>Fill out the form and our team will respond within 1–2 business days. For urgent needs, call us directly at +1 (888) 766-7327.</p>
+<p>Fill out the form and our team will respond within 1–2 business days. For urgent needs, call us directly at .</p>
 <div class="c-info" style="margin-top:28px">
 <div class="c-row"><strong>General: </strong>customerservice@haltfire.com</div>
-<div class="c-row"><strong>Industrial: </strong>industrial@haltfire.com</div>
-<div class="c-row"><strong>Retail: </strong>retail@haltfire.com</div>
-<div class="c-row"><strong>Press: </strong>press@haltfire.com</div>
-<div class="c-row"><strong>Phone: </strong>+1 (888) 766-7327</div>
+<div class="c-row"><strong>Industrial: </strong>Sales@haltfire.com</div>
+<div class="c-row"><strong>Retail: </strong>Sales@haltfire.com</div>
+<div class="c-row"><strong>Press: </strong>Marketing@haltfire.com</div>
+
 </div>
 <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap">
 <a href="https://www.instagram.com/haltfireofficial" target="_blank" rel="noopener" class="soc">IG</a>
@@ -3227,7 +3296,7 @@ Download SDS Sheet
 </div>
 
 <!-- QUICK LINKS -->
-<section class="sec bg-white" aria-labelledby="ql-heading">
+<section id="ind-products" class="sec bg-white" aria-labelledby="ql-heading">
 <div class="con">
 <div class="sh center reveal">
 <span class="eyebrow">Explore HALT</span>
@@ -3296,6 +3365,16 @@ Download SDS Sheet
 
 <script>
 // ===== SPA NAVIGATION =====
+function scrollToContact(pageId, formId) {
+  var page = document.getElementById(pageId);
+  var form = document.getElementById(formId);
+  if (!page || !form) return false;
+  var pageTop = page.getBoundingClientRect().top + window.pageYOffset;
+  var formTop = form.getBoundingClientRect().top + window.pageYOffset;
+  window.scrollTo({top: formTop - 80, behavior: 'smooth'});
+  return false;
+}
+
 function nav(page) {
 // Hide all pages
 document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active') });
@@ -3316,6 +3395,8 @@ return false;
 // ===== TOPBAR HIDE ON SCROLL =====
 var lastScroll = 0;
 var topbar = document.getElementById('topbar');
+
+
 window.addEventListener('scroll', function() {
 var s = window.scrollY;
 var nav = document.getElementById('nav');
@@ -3518,6 +3599,8 @@ if (mob.classList.contains('open')) toggleMob();
 });
 
 // ===== RE-OBSERVE ON PAGE CHANGE =====
+
+
 window.addEventListener('scroll', function() {
 // Continuously observe for newly visible elements
 var hidden = document.querySelectorAll('.reveal:not(.visible), .reveal-left:not(.visible), .reveal-right:not(.visible), .stagger:not(.visible)');
